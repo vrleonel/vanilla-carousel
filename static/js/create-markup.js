@@ -1,14 +1,9 @@
 var createMarkup = (function() {
 
   function getData(data) {
-    console.log(data.widget);
     var el = document.getElementById("carousel");
-    //el.innerHTML = data.widget.size;
-
-    //showData(obj.widget);
     createReference(data);
     createRecommendation(data);
-    //showData(obj.recommendation);
   }
 
   function createItem(obj, selector){
