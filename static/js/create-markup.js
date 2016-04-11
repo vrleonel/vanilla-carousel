@@ -5,33 +5,59 @@ var createMarkup = (function() {
     var el = document.getElementById("carousel");
     //el.innerHTML = data.widget.size;
 
-    var obj = data;
-
     //showData(obj.widget);
-    showData(obj.reference);
-    createReference(obj.reference);
+    createReference(data);
+    createRecommendation(data);
     //showData(obj.recommendation);
   }
 
-  function createReference(obj){
-    var reference = document.querySelector(".reference");
-    var item      = obj.item;
+  function createItem(obj, selector){
+    var reference = selector;
+    var item      = obj;
+    var container = newElement("li", {"class" :"item" });
     var img       = newElement("img", {"src" : "http:" + item.imageName });
     var title     = newElement("span", {"class" : "text"}, item.name );
     var price     = newElement("span", {"class" : "price"}, item.price);
-    var oldPrice  = newElement("span", {"class" : "price"}, item.oldPrice)
+    var oldPrice  = newElement("span", {"class" : "price"}, "De: " + item.oldPrice);
+    var payment   = newElement("span", {"class" : "payment"}, item.productInfo.paymentConditions);
 
-    title.text(item.name);
 
-    reference.appendChild(img);
-    reference.appendChild(title);
 
-    //console.log("NAME",title,  item.name);
+    //reference.querySelector(".item") = container;
+    //img + title + price + oldPrice + payment
+    container.appendChild(img);
+    container.appendChild(title);
+    container.appendChild(price);
+    container.appendChild(oldPrice);
+    container.appendChild(payment);
 
-    reference.appendChild(price);
-    reference.appendChild(oldPrice);
+
+    reference.appendChild(container);
+    // reference.appendChild(img);
+    // reference.appendChild(title);
+    // reference.appendChild(price);
+    // reference.appendChild(oldPrice);
+    // reference.appendChild(payment);
 
     //reference.appendChild(newElement("span", {"class" : "text"}).createTextNode = item.name);
+
+  }
+
+  function createReference(obj){
+    createItem(obj.reference.item, document.querySelector(".reference") );
+  }
+
+  function createRecommendation(obj){
+    var recommend = obj.recommendation,
+        list = newElement("ul", {"class" : "list"}),
+        selector = document.querySelector(".recommendation");
+
+
+      selector.appendChild(list);
+    for(var prop in recommend) {
+      createItem(recommend[prop], document.querySelector(".recommendation .list")  );
+      showData(recommend[prop]);
+    }
 
   }
 
@@ -52,7 +78,10 @@ var createMarkup = (function() {
     for (var prop in attr) {
       el.setAttribute(prop, attr[prop]);
     }
-    el.text(text);
+
+    if(text !== undefined){
+      el.text(text);
+    }
     return el;
   }
 
