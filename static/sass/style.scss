@@ -1,5 +1,110 @@
 /* CSS Test */
 
+//@import "compass/reset";
+@import "compass";
+@import "mixins";
+
+$font-size: 12px;
+$line-height: 1.2;
+$lines-to-show: 3;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  @include box-sizing(border-box);
+}
+
 h1 {
   color: #CCC;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+
+.chaordic {
+  //display: table;
+  font-family: Arial, sans-serif;
+
+  h2 {
+    display: block;
+    //background: cornflowerblue;
+    font-size: 16px;
+    padding: 10px;
+    @include background-image(linear-gradient(#50A6C2, #ADD8E6 30%));
+  }
+
+  .reference {
+    //display: table-cell;
+    //@include inline-block();
+
+    float: left;
+    width:20%;
+    .item {
+      border-right: 1px solid #CCC;
+      width: 100%;
+    }
+  }
+
+  .recommendation {
+    //display: table-cell;
+    @include inline-block();
+    width:80%;
+  }
+
+
+  .list {
+    display: block;
+    //width: 3000px;
+  }
+
+  .item {
+    float: left;
+    //width: 300px;
+    padding: 10px;
+    &:hover {
+      @include background-image(linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%,  white));
+    }
+
+    img {
+      margin: 0 auto;
+    }
+
+    .text {
+      display: block;
+      font-size: 12px;
+      @include multiline-elipsis($font-size, $line-height, $lines-to-show);
+    }
+    .old-price {
+      display: block;
+      font-size: 12px;
+    }
+    .price {
+      display: block;
+      color: #900;
+    }
+    .payment {
+      color: #900;
+      font-size: 12px;
+    }
+  }
+
+
+  .carousel {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    .list {
+      //width: 3000px;
+      position: relative;
+    }
+  }
+
+
 }

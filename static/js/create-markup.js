@@ -12,46 +12,46 @@ var createMarkup = (function() {
     var container = newElement("li", {"class" :"item" });
     var img       = newElement("img", {"src" : "http:" + item.imageName });
     var title     = newElement("span", {"class" : "text"}, item.name );
-    var price     = newElement("span", {"class" : "price"}, item.price);
+    var price     = newElement("span", {"class" : "old-price"}, item.price);
     var oldPrice  = newElement("span", {"class" : "price"}, "De: " + item.oldPrice);
     var payment   = newElement("span", {"class" : "payment"}, item.productInfo.paymentConditions);
 
-
-
-    //reference.querySelector(".item") = container;
-    //img + title + price + oldPrice + payment
     container.appendChild(img);
     container.appendChild(title);
     container.appendChild(price);
     container.appendChild(oldPrice);
     container.appendChild(payment);
-
-
     reference.appendChild(container);
-    // reference.appendChild(img);
-    // reference.appendChild(title);
-    // reference.appendChild(price);
-    // reference.appendChild(oldPrice);
-    // reference.appendChild(payment);
-
-    //reference.appendChild(newElement("span", {"class" : "text"}).createTextNode = item.name);
-
   }
 
   function createReference(obj){
-    createItem(obj.reference.item, document.querySelector(".reference") );
+    var list = newElement("ul", {"class" : "list"}),
+        selector = document.querySelector(".reference");
+
+    selector.appendChild(list);
+    createItem(obj.reference.item, selector.querySelector(".list") );
   }
 
   function createRecommendation(obj){
     var recommend = obj.recommendation,
         list = newElement("ul", {"class" : "list"}),
-        selector = document.querySelector(".recommendation");
+        selector = document.querySelector(".recommendation .carousel"),
+        event = new Event("completeRecommendation");
 
-
-      selector.appendChild(list);
+    selector.appendChild(list);
+    var i = 1;
     for(var prop in recommend) {
       createItem(recommend[prop], document.querySelector(".recommendation .list")  );
-      showData(recommend[prop]);
+      //showData(recommend[prop]);
+
+      if(recommend.length === i++){
+        console.log("Ok", recommend.length);
+
+        // Dispatch the event.
+        document.dispatchEvent(event);
+
+
+      }
     }
 
   }
@@ -81,24 +81,30 @@ var createMarkup = (function() {
   }
 
   function documentReady(){
-    document.addEventListener("DOMContentLoaded", function(event) {
-      console.log("DOM fully loaded and parsed");
-      var script = document.createElement('script');
-      script.src = "http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X";
-      document.getElementsByTagName('body')[0].appendChild(script);
-      // or document.head.appendChild(script) in modern browsers
-    });
+    var script = document.createElement('script');
+    script.src = "http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X";
+    document.getElementsByTagName('body')[0].appendChild(script);
+    // or document.head.appendChild(script) in modern browsers
+
+    // document.addEventListener("DOMContentLoaded", function(event) {
+    //
+    // });
 
   }
 
-  documentReady();
+
+  function init() {
+    documentReady();
+  }
 
   return {
     getData : getData,
-    newElement
+    init : init
   };
 
 })();
+
+createMarkup.init();
 
 function X(data){
   createMarkup.getData(data.data);

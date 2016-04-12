@@ -1,4 +1,103 @@
 /* CSS Test */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 h1 {
   color: #CCC;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chaordic {
+  font-family: Arial, sans-serif;
+}
+.chaordic h2 {
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50a6c2), color-stop(30%, #add8e6));
+  background-image: -webkit-linear-gradient(#50a6c2, #add8e6 30%);
+  background-image: -moz-linear-gradient(#50a6c2, #add8e6 30%);
+  background-image: -o-linear-gradient(#50a6c2, #add8e6 30%);
+  background-image: linear-gradient(#50a6c2, #add8e6 30%);
+}
+.chaordic .reference {
+  float: left;
+  width: 20%;
+}
+.chaordic .reference .item {
+  border-right: 1px solid #CCC;
+  width: 100%;
+}
+.chaordic .recommendation {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 80%;
+}
+.chaordic .list {
+  display: block;
+}
+.chaordic .item {
+  float: left;
+  padding: 10px;
+}
+.chaordic .item:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(30%, #cccccc), color-stop(70%, #bbbbbb), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
+  background-image: -moz-linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
+  background-image: -o-linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
+  background-image: linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
+}
+.chaordic .item img {
+  margin: 0 auto;
+}
+.chaordic .item .text {
+  display: block;
+  font-size: 12px;
+  display: block;
+  /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 400px;
+  height: 43.2px;
+  /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 1.2;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chaordic .item .old-price {
+  display: block;
+  font-size: 12px;
+}
+.chaordic .item .price {
+  display: block;
+  color: #900;
+}
+.chaordic .item .payment {
+  color: #900;
+  font-size: 12px;
+}
+.chaordic .carousel {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.chaordic .carousel .list {
+  position: relative;
 }
