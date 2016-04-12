@@ -1,4 +1,99 @@
 /* CSS Test */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* Reset `button` and button-style `input` default styles */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: button;
+  /* for input */
+  -webkit-user-select: none;
+  /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,11 +119,11 @@ ul, li {
   display: block;
   font-size: 16px;
   padding: 10px;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #50a6c2), color-stop(30%, #add8e6));
-  background-image: -webkit-linear-gradient(#50a6c2, #add8e6 30%);
-  background-image: -moz-linear-gradient(#50a6c2, #add8e6 30%);
-  background-image: -o-linear-gradient(#50a6c2, #add8e6 30%);
-  background-image: linear-gradient(#50a6c2, #add8e6 30%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, #c3e4ed), color-stop(50%, #c1f0f6));
+  background-image: -webkit-linear-gradient(#c3e4ed 50%, #c1f0f6 50%);
+  background-image: -moz-linear-gradient(#c3e4ed 50%, #c1f0f6 50%);
+  background-image: -o-linear-gradient(#c3e4ed 50%, #c1f0f6 50%);
+  background-image: linear-gradient(#c3e4ed 50%, #c1f0f6 50%);
 }
 .chaordic .reference {
   float: left;
@@ -55,14 +150,14 @@ ul, li {
   padding: 10px;
 }
 .chaordic .item:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(30%, #cccccc), color-stop(70%, #bbbbbb), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
-  background-image: -moz-linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
-  background-image: -o-linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
-  background-image: linear-gradient(#aaaaaa, #cccccc 30%, #bbbbbb 70%, #ffffff);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(50%, #cccccc), color-stop(50%, #bbbbbb), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
+  background-image: -moz-linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
+  background-image: -o-linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
+  background-image: linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
 }
-.chaordic .item img {
-  margin: 0 auto;
+.chaordic .item figure {
+  text-align: center;
 }
 .chaordic .item .text {
   display: block;

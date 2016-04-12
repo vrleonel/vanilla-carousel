@@ -10,13 +10,15 @@ var createMarkup = (function() {
     var reference = selector;
     var item      = obj;
     var container = newElement("li", {"class" :"item" });
+    var figure    = newElement("figure", {"class" : "figure-align"});
     var img       = newElement("img", {"src" : "http:" + item.imageName });
     var title     = newElement("span", {"class" : "text"}, item.name );
     var price     = newElement("span", {"class" : "old-price"}, item.price);
     var oldPrice  = newElement("span", {"class" : "price"}, "De: " + item.oldPrice);
     var payment   = newElement("span", {"class" : "payment"}, item.productInfo.paymentConditions);
 
-    container.appendChild(img);
+    figure.appendChild(img);
+    container.appendChild(figure);
     container.appendChild(title);
     container.appendChild(price);
     container.appendChild(oldPrice);
@@ -61,7 +63,6 @@ var createMarkup = (function() {
   }
 
   function showData(obj){
-    console.log(obj);
     for (var prop in obj) {
       console.log("obj." + prop + " = " + obj[prop]);
     }
@@ -99,7 +100,8 @@ var createMarkup = (function() {
 
   return {
     getData : getData,
-    init : init
+    init : init,
+    newElement: newElement
   };
 
 })();
