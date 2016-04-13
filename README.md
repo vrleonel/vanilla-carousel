@@ -1,5 +1,8 @@
 # vanilla-carousel
 Pure JS Carousel
 
-# Test URL
+## Request JSONP:
 http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X
+
+## Demo URL
+http://vrleonel.com.br/demo/carousel
