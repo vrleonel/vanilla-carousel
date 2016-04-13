@@ -192,7 +192,27 @@ ul, li {
   width: 100%;
   display: block;
   overflow: hidden;
+  position: relative;
+  padding: 0 30px;
 }
 .chaordic .carousel .list {
   position: relative;
+}
+.chaordic .carousel .btn-list button {
+  background-image: -webkit-gradient(linear, to right, to left, color-stop(0%, #dddddd), color-stop(100%, rgba(255, 255, 255, 0.5)));
+  background-image: -webkit-linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
+  background-image: -moz-linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
+  background-image: -o-linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
+  background-image: linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
+  width: 30px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+.chaordic .carousel .btn-list #btn-next {
+  right: 0;
+}
+.chaordic .carousel .btn-list #btn-prev {
+  left: 0;
 }

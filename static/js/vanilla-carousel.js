@@ -3,8 +3,9 @@ var carousel = (function() {
   var config = { };
 
   config.slides       = 4;
-  config.speed        = 1000;
-  config.effect       = "linear";
+  config.itemScroll   = 2;
+  config.speed        = 500;
+  config.effect       = "ease";
   config.delay        = 0;
   config.transition   = 'margin-left ' + config.speed + 'ms' + ' ' + config.effect + ' ' + config.delay + 'ms';
   config.carousel     = ".carousel";
@@ -21,8 +22,8 @@ var carousel = (function() {
   }
 
   function createButtons(){
-    config.btnList.appendChild(config.btnNext);
     config.btnList.appendChild(config.btnPrev);
+    config.btnList.appendChild(config.btnNext);
 
     document.querySelector(config.carousel).appendChild(config.btnList);
 
@@ -31,12 +32,17 @@ var carousel = (function() {
   }
 
   function goNext() {
-    console.log(document.getElementById(config.nextName));
     document.getElementById(config.nextName).addEventListener("click", function(){
+      var scroll = document.querySelector(config.carouselList).style.marginLeft.replace("px",""),
+          stopCondition = -1*(config.totalWidth - (config.slides * config.itemWidth ) );
 
-      var pxVal = document.querySelector(config.carouselList).style.marginLeft.replace("px","");
-      pxVal += config.itemWidth * 2;
-      document.querySelector(config.carouselList).style.marginLeft = pxVal + "px";
+      scroll = (scroll*1) - config.itemWidth * config.itemScroll;
+
+      if(scroll >= stopCondition){
+        roll(scroll);
+      } else {
+        roll(stopCondition);
+      }
 
     });
 
@@ -44,12 +50,17 @@ var carousel = (function() {
 
   function goPrev(){
     document.getElementById(config.prevName).addEventListener("click", function(){
-      var pxVal = document.querySelector(config.carouselList).style.marginLeft.replace("px","");
-      pxVal -= config.itemWidth * 2;
-      document.querySelector(config.carouselList).style.marginLeft = pxVal + "px";
+      var scroll = document.querySelector(config.carouselList).style.marginLeft.replace("px","");
+      scroll = (scroll*1) + config.itemWidth * config.itemScroll;
+      if(scroll <= 0 ){
+        roll(scroll);
+      }
     });
   }
 
+  function roll(scroll){
+    document.querySelector(config.carouselList).style.marginLeft = scroll + "px";
+  }
 
 
   function init(){
@@ -62,7 +73,6 @@ var carousel = (function() {
 
   }
 
-
   function setItemWidth(){
     var list    = document.querySelector(".carousel .list"),
         item    = list.getElementsByClassName("item"),
@@ -72,13 +82,11 @@ var carousel = (function() {
 
     config.listWidth = listW;
     config.itemWidth = itemW;
+    config.totalWidth = totalW;
 
     for(var i=0; i < item.length; i++) {
-      //console.log("item", key, item[key]);
-      //item[key].style.width = itemW + "px";
       list.childNodes[i].style.width = itemW + "px";
     }
-
     list.style.width = totalW+"px";
 
   }

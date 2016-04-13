@@ -98,10 +98,30 @@ ul, li {
     width: 100%;
     display: block;
     overflow: hidden;
+    position: relative;
+    padding: 0 30px;
 
     .list {
       //width: 3000px;
       position: relative;
+    }
+    .btn-list {
+      button {
+        @include background-image(linear-gradient(to right, #dddddd, rgba(255,255,255, .5) ));
+        width: 30px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        height: 100%;
+      }
+      #btn-next {
+        right: 0;
+      }
+
+      #btn-prev {
+        left: 0;
+      }
+
     }
   }
 

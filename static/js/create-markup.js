@@ -47,12 +47,8 @@ var createMarkup = (function() {
       //showData(recommend[prop]);
 
       if(recommend.length === i++){
-        console.log("Ok", recommend.length);
-
         // Dispatch the event.
         document.dispatchEvent(event);
-
-
       }
     }
 
@@ -66,7 +62,6 @@ var createMarkup = (function() {
     for (var prop in obj) {
       console.log("obj." + prop + " = " + obj[prop]);
     }
-    console.log("===================\n");
   }
 
   function newElement(element, attr, text) {
@@ -85,12 +80,6 @@ var createMarkup = (function() {
     var script = document.createElement('script');
     script.src = "http://roberval.chaordicsystems.com/challenge/challenge.json?callback=X";
     document.getElementsByTagName('body')[0].appendChild(script);
-    // or document.head.appendChild(script) in modern browsers
-
-    // document.addEventListener("DOMContentLoaded", function(event) {
-    //
-    // });
-
   }
 
 
@@ -108,6 +97,12 @@ var createMarkup = (function() {
 
 createMarkup.init();
 
+
+/*
+  Essa função foi criada para suportar o JSONP
+  Como a URL não aceita callback diferente, foi
+  necessário fazer uma função global fora dos módulos.
+*/
 function X(data){
   createMarkup.getData(data.data);
 }
