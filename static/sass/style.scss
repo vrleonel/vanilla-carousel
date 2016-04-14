@@ -31,6 +31,7 @@ ul, li {
 .chaordic {
   //display: table;
   font-family: Arial, sans-serif;
+  border: 1px solid #CCC;
 
   h2 {
     display: block;
@@ -69,7 +70,7 @@ ul, li {
     //width: 300px;
     padding: 10px;
     &:hover {
-      @include background-image(linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%,  white));
+      @include background-image(linear-gradient(#C3E4ED,  white));
     }
     figure{
       text-align: center;
@@ -78,14 +79,17 @@ ul, li {
       display: block;
       font-size: 12px;
       @include multiline-elipsis($font-size, $line-height, $lines-to-show);
+      margin: 10px 0;
     }
     .old-price {
       display: block;
       font-size: 12px;
+      padding: 5px 0 ;
     }
     .price {
       display: block;
       color: #900;
+      padding: 2px 0 ;
     }
     .payment {
       color: #900;
@@ -107,15 +111,26 @@ ul, li {
     }
     .btn-list {
       button {
-        @include background-image(linear-gradient(to right, #dddddd, rgba(255,255,255, .5) ));
+        //@include background-image(linear-gradient(to right, #dddddd, rgba(255,255,255, 1) ));
+        background: #EEE;
         width: 30px;
         height: 100px;
         position: absolute;
         top: 0;
         height: 100%;
+        @include box-shadow(#AAA 4px 4px 10px);
+        font-size: 30px;
+
+        color: #666666;
+        &:hover {
+          color: #0000FF;
+        }
       }
       #btn-next {
         right: 0;
+        @include box-shadow(#AAA -4px -4px 10px);
+        //background: #DDD;
+        //@include background-image(linear-gradient( rgba(255,255,255, 1), #dddddd ));
       }
 
       #btn-prev {

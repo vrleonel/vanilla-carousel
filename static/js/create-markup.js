@@ -13,15 +13,17 @@ var createMarkup = (function() {
     var figure    = newElement("figure", {"class" : "figure-align"});
     var img       = newElement("img", {"src" : "http:" + item.imageName });
     var title     = newElement("span", {"class" : "text"}, item.name );
-    var price     = newElement("span", {"class" : "old-price"}, item.price);
-    var oldPrice  = newElement("span", {"class" : "price"}, "De: " + item.oldPrice);
+    var oldPrice  = item.oldPrice  ? newElement("span", {"class" : "old-price"}, "De: " + item.oldPrice) : false;
+    var price     = newElement("span", {"class" : "price"}, "Por: " + item.price);
     var payment   = newElement("span", {"class" : "payment"}, item.productInfo.paymentConditions);
-
+ 
     figure.appendChild(img);
     container.appendChild(figure);
     container.appendChild(title);
+    if(oldPrice){
+      container.appendChild(oldPrice);
+    }
     container.appendChild(price);
-    container.appendChild(oldPrice);
     container.appendChild(payment);
     reference.appendChild(container);
   }

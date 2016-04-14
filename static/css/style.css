@@ -114,6 +114,7 @@ ul, li {
 
 .chaordic {
   font-family: Arial, sans-serif;
+  border: 1px solid #CCC;
 }
 .chaordic h2 {
   display: block;
@@ -150,11 +151,11 @@ ul, li {
   padding: 10px;
 }
 .chaordic .item:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aaaaaa), color-stop(50%, #cccccc), color-stop(50%, #bbbbbb), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
-  background-image: -moz-linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
-  background-image: -o-linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
-  background-image: linear-gradient(#aaaaaa, #cccccc 50%, #bbbbbb 50%, #ffffff);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c3e4ed), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(#c3e4ed, #ffffff);
+  background-image: -moz-linear-gradient(#c3e4ed, #ffffff);
+  background-image: -o-linear-gradient(#c3e4ed, #ffffff);
+  background-image: linear-gradient(#c3e4ed, #ffffff);
 }
 .chaordic .item figure {
   text-align: center;
@@ -175,14 +176,17 @@ ul, li {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 10px 0;
 }
 .chaordic .item .old-price {
   display: block;
   font-size: 12px;
+  padding: 5px 0;
 }
 .chaordic .item .price {
   display: block;
   color: #900;
+  padding: 2px 0;
 }
 .chaordic .item .payment {
   color: #900;
@@ -199,19 +203,26 @@ ul, li {
   position: relative;
 }
 .chaordic .carousel .btn-list button {
-  background-image: -webkit-gradient(linear, to right, to left, color-stop(0%, #dddddd), color-stop(100%, rgba(255, 255, 255, 0.5)));
-  background-image: -webkit-linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
-  background-image: -moz-linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
-  background-image: -o-linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
-  background-image: linear-gradient(to right, #dddddd, rgba(255, 255, 255, 0.5));
+  background: #EEE;
   width: 30px;
   height: 100px;
   position: absolute;
   top: 0;
   height: 100%;
+  -webkit-box-shadow: #aaaaaa 4px 4px 10px;
+  -moz-box-shadow: #aaaaaa 4px 4px 10px;
+  box-shadow: #aaaaaa 4px 4px 10px;
+  font-size: 30px;
+  color: #666666;
+}
+.chaordic .carousel .btn-list button:hover {
+  color: #0000FF;
 }
 .chaordic .carousel .btn-list #btn-next {
   right: 0;
+  -webkit-box-shadow: #aaaaaa -4px -4px 10px;
+  -moz-box-shadow: #aaaaaa -4px -4px 10px;
+  box-shadow: #aaaaaa -4px -4px 10px;
 }
 .chaordic .carousel .btn-list #btn-prev {
   left: 0;
